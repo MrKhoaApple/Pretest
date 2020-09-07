@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre4_contact</title>
+    <style>
+         *{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, 'Arial Narrow', Arial, sans-serif;
+        }
+        span{
+            text-shadow: lightslategray 3px 3px 7px;;
+            color: rgb(163, 159, 159);
+            text-align: left;
+            font-size: 2.5rem;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        a{
+            font-weight: bold;
+            color: rgba(10, 9, 9, 0.534);
+            text-align: center;
+            text-decoration: none;
+            margin: 15px;
+            margin-inline-start: 0%;
+        }
+        
+        
+        .f1{
+            text-align: center;
+        }
+        .formlogin {
+            margin-top: 10px;
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+            border: solid medium rgb(139, 124, 124);
+            padding: 2rem;
+            color: rgb(199, 12, 12);
+            font-weight: bolder;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        h2{
+            margin-left: 9%;
+            text-shadow: 7px -1px 5px rgb(243, 104, 85);
+        }
+        input[type="submit"],
+        input[type="reset"] {
+            font-size: 1.05rem;
+            border-radius: 15px 15px;
+            padding: 1px 5px;
+            background-color: rgb(69, 79, 223);
+            color: oldlace;
+        }
+        input:required{
+            border-bottom-color:rgb(81, 81, 199);
+            border-top-color: darkgrey;
+            border-right-color: darkgrey;
+            border-left-color: darkgrey;
+        }
+        legend,label{
+            color: rgb(59, 49, 49);
+        }
+        .option{
+            font-weight: bolder;
+            color:  rgb(199, 12, 12); 
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+    <div class="formlogin">
+        <form id="review">
+        <header>
+            <img src="../Pretest 4/image/logo.jpg" alt="">
+                <span>Amazing Bridges</span>  
+             <nav>
+                     <a href="Pre4_home.html">HOME</a>
+                     <a href="https://www.popularmechanics.com/technology/infrastructure/g2383/the-worlds-most-impressive-bridges/">WORLD BRIDGES</a>
+                     <a href="https://www.jagranjosh.com/general-knowledge/top-10-longest-bridge-in-the-world-1497004256-1">TOP LONGEST</a>
+                     <a href="https://10mosttoday.com/10-highest-bridges-in-the-world/">TOP HIGHEST</a>
+                     <a href="">CONTACT</a>
+                    </nav>
+                     <hr>
+                    </header>   
+        
+        <h2>Contact us</h2>
+        
+        <fieldset>
+            <legend>Your Details:</legend>
+            <label for="name" class="input1">Name</label>
+            <input type="text" name="txtName" id="txtName" pattern="([a-zA-Z ]){3,20}"  title="Name has at least 6 characters!" required size="30">*
+            <br><br>
+
+            <label for="email" class="input1">Email</label>
+            <input type="email" name="txtMail" id="txtMail" pattern="([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})" title="Email had to be like xxx@xxxx.xxx" required size="30">*
+            <br><br>
+        </fieldset>
+
+        <br>
+
+        <fieldset>
+            <legend>Your Review:</legend>
+            <label for="">How did you hear about us?</label>
+           <select name="review" id="review" class="option">
+               <option value="Google">Google</option>
+               <option value="Friend">Friend</option>
+               <option value="Advert">Advert</option>
+               <option value="Other">Other</option>
+           </select><br><br>
+            <label for="">Would you visit again?</label>
+            <input type="radio" name="option" id="cboption" class="option" value="Yes">Yes
+            <input type="radio" name="option" id="cboption" class="option" value="No">No 
+            <input type="radio" name="option" id="cboption" class="option" value="Maybe">Maybe
+            <br><br>
+            <label for="">Comment:</label><br>
+            <textarea name="Comment" id="Comment" cols="60" rows="5"></textarea><br><br>
+            <input type="checkbox" name="cbrememberme" id="cbrememberme" >Sign me up for email updates <br><br>
+
+            <input type="submit" value="Submit review">
+            <input type="reset" value="Reset">
+            
+        </fieldset>
+    </form>
+    </div>
+    <script>
+        var form = document.getElementById("review");
+        form.onsubmit = function(){
+            var name = document.getElementById("txtName").value;
+
+            var email = document.getElementById("txtMail").value;
+
+
+
+            var review = document.querySelector(".option:checked").value;
+
+            alert(
+                "Thank you, Mr." + name + '\n'+
+                "Your information include:"+'\n'+
+                "Name: " + name + '\n'+
+                "Email: "+email +'\n'+ 
+                "How did you dear about us: "+ form.review.value +'\n'+
+                "Would you visit again: "+review+'\n'+
+                "Comments: "+form.Comment.value
+            )
+        }
+    </script>
+</body>
+</html>

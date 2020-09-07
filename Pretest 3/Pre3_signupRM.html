@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pretest3_SIGN UP</title>
+    <style>
+         .formlogin {
+            margin-top: 10px;
+            width: 25%;
+            margin-left: auto;
+            margin-right: auto;
+            border: solid medium rgb(139, 124, 124);
+            padding: 2rem;
+            color: rgb(199, 12, 12);
+            font-weight: bolder;
+            border-radius: 10px;
+        }
+        h2{
+            color: rgb(102, 201, 145);
+            text-shadow: rgb(176, 212, 193) 3px 3px 7px;
+        }
+        hr{
+            color: rgb(143, 162, 180);
+        }
+        .td{
+            padding: 0.5rem;
+            margin-left: -0.5rem;
+
+        }
+        select{
+            color: rgb(8, 112, 138);
+            font-family: monospace;
+            font-size: large;
+            font-weight: bolder;
+        }
+        input[type="submit"]
+         {
+            font-size: 1.05rem;
+            color: blanchedalmond;
+            border-radius: 5px ;
+            padding: 1px 25px;
+            background-color: rgb(216, 81, 81);
+            
+
+        }
+        input[type="reset"]{
+            font-size: 1.05rem;
+            color: blanchedalmond;
+            border-radius: 5px ;
+            padding: 1px 28px;
+            background-color: rgb(54, 131, 218);
+            
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="formlogin">
+        <h2>Student Information</h2>
+        <hr>
+        <form  method="get" id="login">
+        <table class="td">
+            <tr>
+                <td>Name</td>
+                <td><input type="text" name="txtName" id="txtName" required pattern="([a-zA-Z ]){6,30}" title="Name have at least 6 characters"></td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td><input type="radio" name="rG" id="rG" value="Male" class="gen">Male
+                <input type="radio" name="rG" id="rG" value="Female" class="gen">Female</td>
+                </td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td>
+                    <input type="text" name="txtAddress" id="txtAddress" required pattern="([0-9 a-zA-Z]){2,25}" title="Address have at least 2 characters">
+                </td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="email" name="txtEmail" id="txtEmail" pattern="([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})" title="Email had to: abc@gmail.com"></td>
+            </tr>
+            <tr>
+                <td>Phone</td>
+                <td><input type="tel" name="txtPhone" id="txtPhone" pattern="[0-9]{3}-[0-9]{5,8}" title="Phone number had to xxx-xxxx"></td>
+            </tr>
+            <tr>
+                <td>Qualification</td>
+                <td>
+                    <select name="Quali" id="Quali">
+                        <option value="Bachelor degree">Bachelor degree</option>
+                        <option value="Master">Master</option>
+                        <option value="PhD">PhD</option>
+                        <option value="None">None</option>
+                    </select>
+                </td>
+            </tr>
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+            <tr>
+                <td><input type="submit" value="Submit"></td>
+                <td><input type="reset" value="Reset"></td>
+            </tr>
+        </table>
+    </form>
+    </div>
+    <script>
+        form = document.getElementById("login");
+        document.getElementById("login").onsubmit = function(){
+            /*name*/
+            var name = document.getElementById("txtName").value;
+           
+            /*gender*/
+            var gen = document.querySelector(".gen:checked").value;
+            /*address*/
+            var address = document.getElementById("txtAddress").value;
+           
+            /*email*/
+            var email = document.getElementById("txtEmail").value;
+          
+            /*phone*/
+            var phone = document.getElementById("txtPhone").value;
+            /*qualification*/
+            var qualification = form.Quali.value;
+            
+            //xuất dữ liệu
+            var w = window.open();
+            //form
+            w.document.write('<div style=" margin-top: 10px; width: 35%; margin-left: auto; margin-right: auto; border: solid medium rgb(139, 124, 124); padding: 2rem; color: rgb(199, 12, 12); font-weight: bolder; border-radius: 10px;">');
+            //h2
+            w.document.write('<h2 style="color:brown;text-align:center";>Student Information Successful Registration</h2>');
+            //hr
+            w.document.writeln('<hr>');
+            //name
+            w.document.write('<div style="color: forestgreen; margin-left: 0.5rem;">Name</div>' + '<div style="position: relative; left: 15rem; top: -1.2em;">'+name+'</div>');
+            //gender
+            w.document.write('<div style="color: forestgreen; margin-left: 0.5rem;">Gender</div>' + '<div style="position: relative; left: 15rem; top: -1.2em;">'+gen+'</div>');
+            //address
+            w.document.write('<div style="color: forestgreen; margin-left: 0.5rem;">Address</div>' + '<div style="position: relative; left: 15rem; top: -1.2em;">'+address+'</div>');
+            //email
+            w.document.write('<div style="color: forestgreen; margin-left: 0.5rem;">Email</div>' + '<div style="position: relative; left: 15rem; top: -1.2em; color: royalblue; ">'+'<u>'+email+'</u>'+'</div>');
+            //phone
+            w.document.write('<div style="color: forestgreen; margin-left: 0.5rem;">Phone</div>' + '<div style="position: relative; left: 15rem; top: -1.2em;">'+phone+'</div>');
+            //qualification
+            w.document.write('<div style="color: forestgreen; margin-left: 0.5rem;">Qualification</div>' + '<div style="position: relative; left: 15rem; top: -1.2em;">'+qualification+'</div>');
+            // back to sign up page
+            w.document.write('<a href="Pre3_signupRM.html" style="text-decoration: none; color: brown; font-weight: bolder; margin-left: 0.5em;">Click here to return sign up page</a>');
+
+        }
+      
+    </script>
+    
+    
+</body>
+</html>

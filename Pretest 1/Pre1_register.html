@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        * {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            font-size: 1.05rem;
+            border-radius: 15px 15px;
+            padding: 1px 5px;
+            background-color: tomato;
+        }
+
+        .formlogin {
+            margin-top: 10px;
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            border: solid medium whitesmoke;
+            padding: 1rem;
+
+        }
+
+        h2 {
+            text-align: center;
+            color: whitesmoke;
+            background-color: yellowgreen;
+            border: none;
+            margin-left: 150px;
+            margin-right: 150px;
+        }
+
+        table {
+            padding: 1em;
+            margin: auto;
+            margin-top: 2rem;
+        }
+
+        input:required {
+            border: tomato solid medium
+        }
+
+        #b {
+            border-top: 2px solid;
+            border-bottom: 2px solid;
+        }
+
+        a {
+
+            margin-left: 10px;
+            margin-right: 150px;
+            padding: 38px;
+            text-align: center;
+            text-decoration: none;
+            color: rgb(15, 91, 204);
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div id="b">
+        <a href="Pre1_home.html">HOME</a>
+        <a href="Pre1_product.html">PRODUCTS</a>
+        <a href="http://shoponline24.vn/">SHOPS</a>
+        <a href="Pre1_register.html">REGISTER</a>
+        <a href="Pre1_login.html">SIGNIN</a>
+    </div>
+    <div class="formlogin">
+        <h2>MEMBER INFORMATION</h2>
+        <form id="login" method="get" action="Pre1_login.html">
+            <table>
+                <tr>
+                    <td>Full name</td>
+                    <td><input type="text" name="txtUser" id="txtUser" placeholder="Type your full name here" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td> Male <input type="radio" name="rG" id="rMale" value="Male" class="gen" required>
+                        Female <input type="radio" name="rG" id="rFMale" value="Female" class="gen" required>
+                        Other <input type="radio" name="rG" id="rOther" value="Other" class="gen" required></td>
+                </tr>
+
+                <tr>
+                    <td>Hobbies</td>
+                    <td>
+                        Shopping <input type="checkbox" name="ckS" id="ckH" value="Shopping">
+                        Eating out <input type="checkbox" name="ckH" id="ckH" value="Eating out">
+                        Sporting <input type="checkbox" name="ckSp" id="ckH" value="Sporting">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Date of Birth</td>
+                    <td><input type="date" name="txtBD" id="txtBD" required></td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td><input type="text" name="txtAdd" id="txtAdd" placeholder="Input your address here" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><input type="email" name="txtMail" id="txtMail" placeholder="abc@gmail.com" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phone number</td>
+                    <td><input type="number" name="txtPhone" id="txtPhone" placeholder="Input your phone number here">
+                    </td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td><select name="cbCity" id="City" required>
+                            <option value="">---Select a city</option>
+                            <option value="SAIGON">SAIGON</option>
+                            <option value="HUE">HUE</option>
+                            <option value="HANOI">HANOI</option>
+                            <option value="DANANG">DANANG</option>
+                        </select></td>
+                </tr>
+                <tr>
+                    <td>Comment</td>
+                    <td><textarea name="Comment" id="Comment" cols="30" rows="5"
+                            placeholder="Leave your comment in here"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="Submit">
+                        <input type="reset" value="Reset">
+                    </td>
+                </tr>
+            </table>
+    </div>
+
+    <script>
+
+        var form = document.getElementById("login");
+
+
+        form.onsubmit = function () {
+
+
+            // tạo biểu thức quy tắc để kiểm tra họ và tên có hợp lệ hay không
+            //Họ và tên chỉ hợp lệ: chỉ chứa các ký tự a-z và khoảng trắng
+            // từ 3 tới 20 ký tự 
+
+            /* kiểm tra ngày tháng năm sinh có hợp lệ hay không? Đề bài yêu cầu 17 tuổi mới vô web được*/
+            var ngaysinh = document.getElementById("txtBD").value;
+            var re = /\d{4}/;
+            var namsinh = re.exec(ngaysinh);
+            var namhientai = new Date().getFullYear();
+            var tuoi = namhientai - namsinh;
+            if (tuoi > 17) {
+                var birth = "Birthday " + ngaysinh;
+            }
+            else {
+                alert("Chưa đủ tuổi để truy cập website này!")
+                return false;
+            }
+
+            /* kiểm tra số điện thoại */
+            var sdt = document.getElementById("txtPhone").value;
+            var re = /^[0-9]{10}$/; //^ và $ chỉ áp dụng cho chữ, không có áp dụng vừa chữ và số 
+            if (re.test(sdt)) {
+
+            }
+            else {
+                alert(" Số điện thoại phải có đủ 10 số! ");
+                return false;
+            }
+
+            /* kiểm tra giới tính và hiển thị ra*/
+            var g = document.querySelector(".gen:checked").value;
+            /*kiểm tra hobbies và hiển thị ra màn hình */
+            var hob = document.getElementById("ckH");
+            var s = "";
+            for (let i = 0; i < form.ckH.length; i++) {
+                if (form.ckH[i].checked) {
+                    s += form.ckH[i].value + " ";
+                }
+            }
+            /*kiểm tra email có hợp lệ hay không*/
+            var mail = document.getElementById("txtMail").value;
+
+            //console.log("mail = "+mail); -> lệnh này dùng để debug 
+
+            var checkmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; /* khúc mail này là theo điều kiện trên mạng */
+            if (mail == "") {
+                alert("Email chưa được nhập!")
+            }
+            else if (checkmail.test(mail)) {
+
+            }
+            else {
+                alert("Email chưa đúng định dạng!");
+                return false;
+            };
+
+
+            // /* kiểm tra họ tên có hợp lệ hay không*/ 
+            var fullname = document.getElementById("txtUser").value;
+            //console.log("fullname = "+fullname); -> dùng lệnh này để debug 
+
+            var name = /^[a-zA-Z ]{4,25}$/;
+            var n1 = "Name";
+            if (name.test(fullname)) {
+                n1 = n1 + fullname;
+            }
+            else {
+                alert("Chưa đúng định dạng ở phần Full name!");
+                return false;
+            };
+
+
+            alert(
+                "Member Information \n" +
+                "--------------------\n" +
+                "Full name: " + fullname + '\n' +
+                "Gender: " + g + '\n' +
+                "Hobbies: " + s + "\n" +
+
+                "Birthday: " + ngaysinh + "\n" +
+                "Address: " + form.txtAdd.value + "\n" +
+                "Email: " + mail + "\n" +
+                "Phone: " + sdt + "\n" +
+                "City: " + form.City.value + "\n" +
+                "Comment: " + form.Comment.value + "\n"
+            );
+            return false;
+        }
+    </script>
+</body>
+
+</html>

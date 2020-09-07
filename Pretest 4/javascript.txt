@@ -1,0 +1,43 @@
+function get()
+{
+    
+    var arr = document.getElementsByTagName('input'); 
+    var name = arr[0].value;//thằng name là ô input đầu tiên = 0
+    
+    var gender = document.querySelector(".gend:checked").value;
+    
+    
+    
+    var address = arr[3].value;// thằng này có 1 ô : 3
+    var email = arr[4].value;// thằng này có 1 ô : 4
+    var phone = arr[5].value;// thằng này có 1 ô : 5
+    
+    var theselect = register.quali;
+    var vquali = theselect[theselect.selectedIndex].value;
+    var w = window.open("pretest_3_information.html");
+
+    w.document.write('<div style="border: black solid thin;width:35em;margin-left:auto;margin-right:auto;">');
+    w.document.write('<h2 style="color:red;font-style: italic;font-family: Arial;text-align:center">Student Information Successful Registration</h2>');
+    
+    w.document.write('<div style="color:rgba(22, 112, 14, 0.918);font-style: italic; font-family: Arial;font-weight:bolder;margin-left:0.5em">Name</div>'+ '<div style="position:relative;left:15em;top: -1.2em;font-weight:bolder">'+name+'</div>');
+
+    w.document.write('<div style="color:rgba(22, 112, 14, 0.918);font-style: italic; font-family: Arial;font-weight:bolder;margin-left:0.5em">Gender</div>'+ '<div style="position:relative;left:15em;top: -1.2em;font-weight:bolder">'+gender+'</div>');
+
+    w.document.write('<div style="color:rgba(22, 112, 14, 0.918);font-style: italic; font-family: Arial;font-weight:bolder;margin-left:0.5em">Address</div>'+ '<div style="position:relative;left:15em;top: -1.2em;font-weight:bolder">'+address+'</div>');
+
+    w.document.write('<div style="color:rgba(22, 112, 14, 0.918);font-style: italic; font-family: Arial;font-weight:bolder;margin-left:0.5em">Email</div>'+ '<div style="position:relative;left:15em;top: -1.2em;font-weight:bolder; color:royalblue">'+'<ins>'+email+'</ins>'+'</div>');
+
+    w.document.write('<div style="color:rgba(22, 112, 14, 0.918);font-style: italic; font-family: Arial;font-weight:bolder;margin-left:0.5em">Phone</div>'+ '<div style="position:relative;left:15em;top: -1.2em;font-weight:bolder;">'+phone+'</div>');
+
+    w.document.write('<div style="color:rgba(22, 112, 14, 0.918);font-style: italic; font-family: Arial;font-weight:bolder;margin-left:0.5em">Qualification</div>'+ '<div style="position:relative;left:15em;top: -1.2em;font-weight:bolder">'+vquali+'</div>');
+
+    w.document.write('<a style="text-decoration:none;color:black;font-weight: bolder;margin-left:0.5em" href="pretest_3_signup.html">Click here to return to Student Page</a>');
+    w.document.write('</div>');
+
+    /*alert(
+        "Member infomation\n"+"--------\n"+"Name: "+name+"\n"+"Gender: "+gender+"\n"+"Address"+address+"\n"+"Mail: "+email+"\n"+"Phone: "+phone+"\n"+"Qualification: "+vquali);
+        return false;
+    */
+   //end.
+
+}

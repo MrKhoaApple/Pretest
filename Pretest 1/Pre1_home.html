@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <style>
+        #b{
+            border-top:  2px solid ;
+            border-bottom:  2px solid ;
+            text-align: left;
+        }
+        a{  
+            padding-left: 30px;
+            text-decoration: none;
+            color: rgb(15, 91, 204);
+            font-weight: bold;
+            width: 17.5%;
+            display: inline-block;
+        }
+        img{
+            padding-left:10% ;
+            width: 80%;
+        }
+        #c{
+            text-align: right;
+            color: coral;
+            font-weight: bolder;
+            
+        }
+        #a{
+            text-align: left;
+            color: cornflowerblue;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="b">
+        <a href="Pre1_home.html" style="text-align: left;">HOME</a>
+        <a href="Pre1_product.html" style="text-align: left;">PRODUCTS</a>
+        <a href="http://shoponline24.vn/" style="text-align: center;">SHOPS</a>
+        <a href="Pre1_register.html" style="text-align: right;">REGISTER</a>
+        <a href="Pre1_login.html" style="text-align-last: right;">SIGNIN</a>
+    </div>
+    <div>
+        <img src="../Pretest 1/images/home.JPG" alt="">
+    </div>
+</body>
+<footer>
+    <div id="a">
+        <br> TODAY:
+    <script type="text/javascript">
+        var date = new Date();
+        var day = date.getDate();
+        var month = date.getMonth();
+        var year = date.getUTCFullYear();
+        document.write(day+"/"+month+"/"+year);
+    </script>
+    </div>
+    <div id="c">
+        TIME:
+        <span id="txt"></span>
+        <script>
+            window.onload = function(){
+                getTime();
+            }
+            function getTime(){
+                var today = new Date();
+                var h = today.getHours();
+                var m = today.getMinutes();
+                var s = today.getSeconds();
+                m = checkTime(m);
+                s = checkTime(s);
+                document.getElementById('txt').innerHTML= h+ ":" +m+":"+s;
+                setTimeout(function(){
+                    getTime()
+                },1000);
+            }
+            function checkTime(i){
+                if (i<10){
+                    i="0"+i;
+                }
+                return i;
+            }
+        </script>
+    </div>
+    <div style="text-align: initial; padding-left: 45%; font-weight: bolder; color: rgb(60, 60, 248);" >Copy &copy; Shopping Online 2020</div>
+</footer>
+</html>

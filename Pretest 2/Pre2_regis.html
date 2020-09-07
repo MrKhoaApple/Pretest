@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        * {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        h2 {
+            text-align: center;
+            color: darkblue;
+            font-size: x-large;
+            font-weight: bolder;
+
+        }
+
+        h3 {
+            text-align: left;
+            margin-left: -0.5rem;
+            color: darkblue;
+            font-weight: bolder;
+        }
+
+        ol {
+            margin-top: -1rem;
+        }
+
+        li {
+            text-align: left;
+            margin-left: -2rem;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            font-size: 1.05rem;
+            border-radius: 15px 15px;
+            padding: 1px 5px;
+            background-color: tomato;
+
+        }
+
+        .formlogin {
+            margin-top: 10px;
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            border: solid medium whitesmoke;
+            padding: 1rem;
+
+        }
+
+        table {
+            padding: 1em;
+            margin: auto;
+            margin-top: 2rem;
+        }
+
+        .td {
+            text-align: right;
+        }
+
+        .td1 {
+            padding-left: 35%;
+        }
+
+        span {
+            color: rgb(248, 38, 38);
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="formlogin">
+        <h2>REGISTRATION FORM</h2>
+        <h3>Notes:</h3>
+        <small>
+            <ol>
+                <li>Fields with(<span>*</span>)mark must be entered</li>
+                <li>Login name have no spaces</li>
+            </ol>
+        </small>
+        <form id="login" method="get">
+            <table>
+                <tr>
+                    <td class="td">Login name<span>*</span></td>
+                    <td><input type="text" name="txtUser" id="txtUser" placeholder="Type your login name" required
+                            value="khoale"></td>
+                </tr>
+                <tr>
+                    <td class="td">Password<span>*</span></td>
+                    <td><input type="password" name="txtP" id="txtP" required value="abc123456"></td>
+                </tr>
+                <tr>
+                    <td class="td">Password Confirm<span>*</span></td>
+                    <td><input type="password" name="txtP1" id="txtP1" required value="abc123456"></td>
+                </tr>
+                <tr>
+                    <td class="td">Full name<span>*</span></td>
+                    <td><input type="text" name="txtN" id="txtN" placeholder="Type your full name" required
+                            value="lequocanhkhoa"></td>
+                </tr>
+                <tr>
+                    <td class="td">Address<span>*</span></td>
+                    <td><input type="text" name="txtA" id="txtA" placeholder="Type your address" required
+                            value="246 huynh van banh"></td>
+                </tr>
+                <tr>
+                    <td class="td">Email<span>*</span></td>
+                    <td><input type="email" name="txtE" id="txtE" placeholder="abc@gmail.com" required
+                            value="khoa@gmail.com"></td>
+                </tr>
+                <tr>
+                    <td class="td">Sex</td>
+                    <td>
+                        <input type="radio" name="rS" id="rg" class="gen" checked value="Male"> Male
+                        <input type="radio" name="rS" id="rg" class="gen" value="Female"> Female
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td">Date of Birth</td>
+                    <td><input type="date" name="txtBD" id="txtBD"
+                        value="2000-08-14"
+                        required></td>
+                </tr>
+                <tr>
+                    <td class="td">Country</td>
+                    <td>
+                        <select name="cCountry" id="Country">
+                            <option value="">-----Select a City-----</option>
+                            <option value="HO CHI MINH CITY" selected>HO CHI MINH</option>
+                            <option value="HA NOI CITY">HA NOI</option>
+                            <option value="DA NANG CITY">DA NANG</option>
+                            <option value="NHA TRANG CITY">NHA TRANG</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td">Phone number</td>
+                    <td> <input type="number" name="txtPhone" id="txtPhone" value="0123456789"></td>
+                </tr>
+                <tr>
+                    <td class="td">Hobbies</td>
+                    <td>
+                        <input type="checkbox" name="cS" id="cH" value="Swimming" checked>Swimming
+                        <input type="checkbox" name="cDa" id="cH" value="Dancing">Dancing
+                        <input type="checkbox" name="cSh" id="cH" value="Shopping">Shopping
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td"> Comment</td>
+                    <td><textarea name="Comment" id="Comment" cols="30" rows="5"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="td1">
+                        <input type="submit" value="Submit">
+                        <input type="reset" value="Reset">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <script>
+        var form = document.getElementById("login");
+
+
+        form.onsubmit = function () {
+            /* kiểm tra login name phải có ít nhất 5 kí tự*/
+            var login = document.getElementById("txtUser").value;
+            var re = /^([a-zA-Z]{5,10})$/;
+            if (!re.test(login)) {
+                alert("Login name have at least five characters!");
+                return false;
+            }
+
+
+            /*kiểm tra password và password có trùng nhau không, password phải có ít nhất 5 kí tự*/
+            var pass = document.getElementById("txtP").value;
+
+            var pa = /^([a-zA-Z0-9]{5,20})$/;
+            if (!pa.test(pass)) {
+                alert("Password have at least five characters!");
+                return false;
+            }
+
+
+            var pass1 = document.getElementById("txtP1").value;
+
+            if (pass != pass1) {
+                alert("Password confirm had to same with Password!")
+                return false;
+            }
+
+
+
+            /*kiểm tra full name*/
+            var fullname = document.getElementById("txtN").value;
+            var name = /^([a-zA-Z]{2,25})$/;
+            var n1 = "Name";
+            if (name.test(fullname)) {
+                n1 = n1 + fullname;
+            }
+            else {
+                alert("Full name have at least 2 characters!");
+                return false;
+            }
+
+            /*kiểm tra địa chỉ*/
+            var address = document.getElementById("txtA").value;
+            var add = /^([0-9 a-z A-Z ]{2,50})$/;
+
+            if (!add.test(address)) {
+
+                alert("Address had to follow form!")
+                return false;
+            }
+
+
+
+            /*kiểm tra email*/
+            var mail = document.getElementById("txtE").value;
+
+            //console.log("mail = "+mail); -> lệnh này dùng để debug 
+
+            var checkmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            if (!checkmail.test(mail)) {
+
+                alert("Email had to follow form!");
+                return false;
+            }
+
+
+            /*kiểm tra giới tính*/
+            var g = document.querySelector(".gen:checked").value;
+
+            /*kiểm tra năm sinh có phải năm nhuần*/
+            var birthday = document.getElementById("txtBD").value;
+
+
+            /* kiểm tra số điện thoại */
+            var sdt = document.getElementById("txtPhone").value;
+            var rdt = /^[0-9]{10}$/;
+            if (!rdt.test(sdt)) {
+                alert(" Số điện thoại phải có đủ 10 số! ");
+                return false;
+            }
+
+
+
+            /*kiểm tra hobbies*/
+            var hob = document.getElementById("cH");
+            var s = "";
+            for (let i = 0; i < form.cH.length; i++) {
+                if (form.cH[i].checked) {
+                    s += form.cH[i].value + " ";
+                }
+            }
+
+            alert(
+                "Welcome to Education Web \n" +
+                "--------------------\n" +
+                "Login name: " + login + '\n' +
+                "Password: " + pass + '\n' +
+                "Password confirm: " + pass1 + '\n' +
+                "Full name: " + fullname + '\n' +
+                "Address: " + address + '\n' +
+                "Email: " + mail + '\n' +
+                "Sex: " + g + '\n' +
+                "Date of birth: " + birthday + '\n' +
+                "Country:" + form.Country.value + '\n' +
+                "Phone number: " + sdt + '\n' +
+                "Hobbies: " + s + '\n' +
+                "Comment: " + form.Comment.value + '\n'
+            );
+            return false;
+        }
+    </script>
+</body>
+
+</html>
